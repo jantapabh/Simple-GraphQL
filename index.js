@@ -16,14 +16,19 @@ const app = express()
 const schema = buildSchema(`
 type Query {
     hello: String 
-}`
-)
+}
+`)
 
-app.use(schema)
+const resolver = {
+    hello(){
+        return 'Hello'
+    }
+}
 
-// app.use(
-//     graphqlMiddleware({
-//         schema
-//     }))
+app.use(
+    graphqlMiddleware({
+        schema,
+        rootValue: resolver
+    }))
 
 app.listen(3000)
