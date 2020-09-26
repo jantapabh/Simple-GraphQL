@@ -18,7 +18,7 @@ type Query {
     hello: String 
 }`
 )
-a
+
 app.use(graphqlMiddleware({
  schema
 }))
