@@ -19,8 +19,11 @@ type Query {
 }`
 )
 
-app.use(graphqlMiddleware({
- schema
-}))
+app.use(schema)
+
+// app.use(
+//     graphqlMiddleware({
+//         schema
+//     }))
 
 app.listen(3000)
