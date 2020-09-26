@@ -1,8 +1,9 @@
 const express = require('express')
-const graphqlmiddleware = require('express-graphql')
+const graphqlMiddleware = require('express-graphql')
+const { buildSchema } = require('graphql')
+
 
 const app = express()
-
 // app.use('/hello',(req , res) => {
 //     res.json({data: 'Hello'})
 // })
@@ -12,8 +13,14 @@ const app = express()
 //     res.json({data: 'world0'})
 // })
 
-app.use(graphqlmiddleware({
-    
+const schema = buildSchema(`
+type Query {
+    hello: String 
+}`
+)
+a
+app.use(graphqlMiddleware({
+ schema
 }))
 
 app.listen(3000)
